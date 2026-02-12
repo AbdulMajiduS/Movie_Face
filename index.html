@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieFace | Choose Year</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px 40px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3em;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #f0932b);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientText 3s ease infinite;
+            margin-bottom: 10px;
+        }
+
+        @keyframes gradientText {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .subtitle {
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        select {
+            width: 100%;
+            padding: 15px 20px;
+            margin-top: 20px;
+            border: 3px solid #667eea;
+            border-radius: 12px;
+            font-size: 18px;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23667eea' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            padding-right: 45px;
+        }
+
+        select:hover {
+            border-color: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #f093fb;
+            box-shadow: 0 0 0 4px rgba(240, 147, 251, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #ee5a6f, #ff6b6b);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
+
+        .year-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .year-btn {
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .year-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+
+        .year-btn.selected {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🎬 MovieFace</h1>
+        <p class="subtitle">Select a year to explore Tamil movies</p>
+
+        <div class="year-grid">
+            <button class="year-btn" onclick="selectYear('2018')">2018</button>
+            <button class="year-btn" onclick="selectYear('2019')">2019</button>
+            <button class="year-btn" onclick="selectYear('2020')">2020</button>
+            <button class="year-btn" onclick="selectYear('2021')">2021</button>
+            <button class="year-btn" onclick="selectYear('2022')">2022</button>
+            <button class="year-btn" onclick="selectYear('2023')">2023</button>
+            <button class="year-btn" onclick="selectYear('2024')">2024</button>
+            <button class="year-btn" onclick="selectYear('2025')">2025</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedYear = '';
+
+        function selectYear(year) {
+            selectedYear = year;
+            document.querySelectorAll('.year-btn').forEach(btn => {
+                btn.classList.remove('selected');
+                if (btn.textContent === year) {
+                    btn.classList.add('selected');
+                }
+            });
+            localStorage.setItem("selectedYear", year);
+            // Auto-navigate to next page
+            setTimeout(() => {
+                window.location.href = "genre.html";
+            }, 300);
+        }
+
+        // Load previously selected year if any (only for visual indication, no auto-navigation)
+        window.onload = function () {
+            const savedYear = localStorage.getItem("selectedYear");
+            if (savedYear) {
+                // Only highlight the previously selected year, don't navigate
+                document.querySelectorAll('.year-btn').forEach(btn => {
+                    btn.classList.remove('selected');
+                    if (btn.textContent === savedYear) {
+                        btn.classList.add('selected');
+                    }
+                });
+            }
+        };
+    </script>
+
+</body>
+
+</html>
